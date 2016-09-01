@@ -20,7 +20,9 @@ var letterConversion = {
 	"I": 8,
 	"J": 9
 }
+
 	var letterArray = ["A","B","C","D","E","F","G","H","I","J"];
+
 // makes the grid columns and rows
 for (i = 0; i < cols; i++) {
 	for (j = 0; j < rows; j++) {
@@ -58,9 +60,23 @@ var gameBoard = [
 				[1,0,0,1,0,0,0,0,0,0],
 				[1,0,0,0,0,0,0,0,0,0]
 				]
+	function fireTorpedo()
+	{
+			// Your game logic will go here!
+		var userInput = $("#Input").val();
+		var rowInput = userInput.substring(0,1)
+		var columnInput = userInput.substring(1,3)
 
-function fireTorpedo() {
-
-	// Your game logic will go here!
+		var rowNumber = letterConversion[rowInput];
+		var columnNumber = columnInput - 1;
+		var coordinates = "s" + rowNumber + columnNumber;
+		if (square.id == something)
+		{
+		$("#" + coordinates).css("background-color", "indigo");
+		}
+		else {
+			$("#" + coordinates).css("background-color", "DeepPink");
+		}
+		console.log(coordinates);
 
 }
