@@ -6,6 +6,10 @@ var squareSize = 50;
 // gets the container element
 var gameBoardContainer = document.getElementById("gameboard");
 
+var music = new Audio('music.mp3');
+music.loop = true;
+music.play();
+
 // you can use this to convert your letters into numbers for use
 // with the 2D array
 var letterConversion = {
@@ -18,7 +22,17 @@ var letterConversion = {
 	"G": 6,
 	"H": 7,
 	"I": 8,
-	"J": 9
+	"J": 9,
+	"a": 0,
+	"b": 1,
+	"c": 2,
+	"d": 3,
+	"e": 4,
+	"f": 5,
+	"g": 6,
+	"h": 7,
+	"i": 8,
+	"j": 9
 }
 
 	var letterArray = ["A","B","C","D","E","F","G","H","I","J"];
@@ -62,6 +76,10 @@ var gameBoard = [
 				]
 
 				var shipsHit = 0;
+				var hitSound = new Audio('impactSound.wav');
+				var launchSound = new Audio('launchSound.wav');
+				var numberHit = 17;
+				$("#numberHit").text(numberHit + " ships remaining");
 
 	function fireTorpedo()
 	{	var gameOver = false;
@@ -79,9 +97,15 @@ var gameBoard = [
 		{
 		$("#" + coordinates).css("background-color", "DeepPink");
 				shipsHit += 1;
+				numberHit -= 1;
+				var hitSound = new Audio('impactSound.wav');
+				hitSound.play();
+				$("#numberHit").text(numberHit + " ships remaining");
+
 		}
 		else {
 			$("#" + coordinates).css("background-color", "indigo");
+				launchSound.play();
 		}
 
 		console.log(coordinates);
@@ -93,5 +117,7 @@ var gameBoard = [
 		if(gameOver){
 			$("#instructions").text("YOU SUNK All MY BATTLESHIPS!!!");
 			$("#inputBox").fadeOut();
+			$("#numberHit").fadeOut();
 		}
+
 }

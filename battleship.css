@@ -49,6 +49,10 @@ p, button, input {
   text-align: center;
   }
 
-#instructions{
+#instructions, #numberHit{
   color: black;
+}
+
+audio{
+  display: none;
 }
