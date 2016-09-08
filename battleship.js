@@ -78,6 +78,7 @@ var gameBoard = [
 				var shipsHit = 0;
 				var hitSound = new Audio('impactSound.wav');
 				var launchSound = new Audio('launchSound.wav');
+				var cheer = new Audio('cheer.mp3');
 				var numberHit = 17;
 				$("#numberHit").text(numberHit + " ships remaining");
 
@@ -110,7 +111,7 @@ var gameBoard = [
 
 		console.log(coordinates);
 
-		if(shipsHit == 17){
+		if(shipsHit == 1){
 			gameOver = true;
 		}
 
@@ -118,6 +119,14 @@ var gameBoard = [
 			$("#instructions").text("YOU SUNK All MY BATTLESHIPS!!!");
 			$("#inputBox").fadeOut();
 			$("#numberHit").fadeOut();
+			$("#hiddendiv").fadeIn();
+			music.pause();
+			cheer.play();
 		}
 
+
+}
+
+function reload() {
+	location.reload();
 }
