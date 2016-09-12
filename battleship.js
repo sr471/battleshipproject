@@ -97,10 +97,10 @@ var gameBoard = [
 		if (battleShip == 1)
 		{
 		$("#" + coordinates).css("background-color", "DeepPink");
-				shipsHit += 1;
-				numberHit -= 1;
 				var hitSound = new Audio('impactSound.wav');
 				hitSound.play();
+				shipsHit += 1;
+				numberHit -= 1;
 				$("#numberHit").text(numberHit + " ships remaining");
 
 		}
@@ -111,7 +111,7 @@ var gameBoard = [
 
 		console.log(coordinates);
 
-		if(shipsHit == 1){
+		if(shipsHit == 17){
 			gameOver = true;
 		}
 
